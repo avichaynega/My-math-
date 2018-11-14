@@ -11,11 +11,11 @@ import java.util.Comparator;
  *
  */
 public class Monom implements function{
-	
+
 	private double _coefficient; 
 	private int _power; 
 
-	
+
 	/**
 	 * This function is the constructor it's get a as a coefficient and b as a power.
 	 * @param a - coefficient.
@@ -24,11 +24,10 @@ public class Monom implements function{
 	public Monom(double a, int b){
 		this._coefficient=a;	
 		if(b < 0)
-	       {
-	          throw new IllegalArgumentException("pow is negative");
-	       }
-	       // Do some stuffs
-		this._coefficient=a;
+		{
+			throw new IllegalArgumentException("pow is negative");
+		}
+		// Do some stuffs
 		this._power = b;		
 	}
 	/**
@@ -38,10 +37,10 @@ public class Monom implements function{
 	public Monom(Monom ot) {	
 		this(ot.get_coefficient(), ot.get_power());
 	}
-	
-	
+
+
 	// ***************** add your code below **********************
-	
+
 	/**
 	 * This function is gets value x and returns the f(x)= a*x^b.
 	 * @param x the value for calculate.
@@ -55,6 +54,9 @@ public class Monom implements function{
 	 */
 
 	public Monom derivative() {
+		if(this._power ==0) {
+			return new Monom(0, 0);
+		}
 		return new Monom(this._coefficient*this._power,this._power-1);
 	}
 	/**
@@ -64,20 +66,20 @@ public class Monom implements function{
 	 */
 	public boolean add(Monom a) {
 		if(this._power == a._power) {
-		this.set_coefficient(this._coefficient+a._coefficient);
-		return true;
+			this.set_coefficient(this._coefficient+a._coefficient);
+			return true;
 		}
 		else {
 			return false;
 		}
-		
-		
+
+
 	}
 	/**
 	 * This function is multiply this Monom with another by multiply the coefficients and the powers
 	 * @param a - The Monom to multiply with.
 	 */
-	
+
 	public void multi(Monom a) {
 		this.set_coefficient(this._coefficient*a._coefficient); 
 		this.set_power(this._power+a._power);
@@ -87,34 +89,82 @@ public class Monom implements function{
 	 * @param s string represent Monom.
 	 * @return return Monom after converting the string.
 	 */
-	public Monom toString(String s) {
+	public Monom (String s) {
 		double a=0;
 		int b=0;
-		for (int i = 0; i < s.length(); i++) {
-			if(s.charAt(i)=='x') {
-				a = Double.parseDouble(s.substring(0, i));
+		if(s.contains("x") && !s.contains("^")) {
+			for (int i = 0; i < s.length(); i++) {
+				if(s.charAt(i)=='x') {
+					if (s.length()==1) {
+						a=1;
+					}
+					else if(s.charAt(0) == '-' && i==s.length()-1) {
+						a=-1;
+					}
+					else {
+						a = Double.parseDouble(s.substring(0, i));
+					}
+				}
+				
+
 			}
-			if(s.charAt(i)=='^') {
-				b = Integer.parseInt(s.substring(s.length()-1,s.length()));
-			}
+			b=1;
+
+			
 		}
-		return new Monom(a, b);
-	
+		else if(!s.contains("x")&& !s.contains("^")) {
+			a= Double.parseDouble(s);
+			b=0;
+		}
+		else {
+			for (int i = 0; i < s.length(); i++) {
+				if(s.charAt(i)=='x') {
+					if(i==0) {
+						a = 1;
+					}
+					else if(s.charAt(0)=='-' && s.charAt(1)=='x') {
+						a=-1;
+					}
+					else {
+						a = Double.parseDouble(s.substring(0, i));
+					}
+				}
+				if(s.charAt(i)=='^') {
+					b = Integer.parseInt(s.substring(i+1,s.length()));
+				}
+
+			}
+
+		}
+		this._coefficient =a;
+		this._power = b;
 	}
 	/**
 	 * This function print the Monom as a string
 	 * @return Monom as a string.
 	 */
 	public String toString() {
-			return ""+this._coefficient+'x'+'^'+this._power;
-		
+		if(this._power == 0 ) {
+			return ""+this._coefficient;
+		}
+		if(this._power == 1 && this._coefficient==1) {
+			return ""+'x';
+		}
+		if(this._power == 1 && this._coefficient!=0) {
+			return ""+this._coefficient+'x';
+		}
+		if(this._coefficient==0) {
+			return "";
+		}
+		return ""+this._coefficient+'x'+'^'+this._power;
+
 	}
 
-	
+
 	private void set_coefficient(double a){
 		this._coefficient = a;
 	}
-	
+
 	private void set_power(int p) {
 		this._power = p;
 	}
@@ -130,7 +180,12 @@ public class Monom implements function{
 	public int get_power() {
 		return this._power;
 	}
+	public static void main(String args[]) {
+		Monom a = new Monom(2, 1);
+		System.out.println(a.derivative().toString());
+		
+
+	}
 
 
-	
 }

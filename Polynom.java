@@ -8,6 +8,8 @@ import java.util.function.Predicate;
 
 
 
+
+
 /**
  * This class represents a Polynom with add, multiply functionality, it also should support the following:
  * 1. Riemann's Integral: https://en.wikipedia.org/wiki/Riemann_integral
@@ -179,7 +181,6 @@ public class Polynom implements Polynom_able{
 				a_x=xmid;
 				xmid = (xmid+b_x)/2;
 				ymid=this.f(xmid);
-				;
 
 			}
 			else {
@@ -189,6 +190,7 @@ public class Polynom implements Polynom_able{
 
 			}
 		}
+		System.out.println(xmid);
 		return ymid;
 	}
 
@@ -268,7 +270,7 @@ public class Polynom implements Polynom_able{
 
 		while(it.hasNext()) {
 			temp =it.next();
-			if(temp.get_coefficient()>=0) {
+			if(temp.get_coefficient()>0) {
 				ans += "+"+temp.toString();
 			}
 			else {
@@ -282,27 +284,36 @@ public class Polynom implements Polynom_able{
 	 * This function get a string and makes it polynom object;
 	 * @param s string represent polynom.
 	 * @return return polynom after converting the string.
-	*/
-	public Polynom toString(String s) {
-		Polynom p = new Polynom();
-		String a="";
-		Monom b =new Monom(0,0) ;
-		for (int i = 0; i < s.length(); i++) {
-			if(s.charAt(i)=='+' || s.charAt(i)=='-' ) {
-				p.add(b.toString(a));
-				a="";
-				
-			}
-			else {
-				a=a+s.charAt(i);
-				if(i==s.length()-1) {
-					p.add(b.toString(a));
-				}
+	 */
+	public Polynom (String s) {
+		this.polynom = new ArrayList<>();
+		s=s.replace("-","+-");
+		String str [] = s.split("\\+");    
+		for (int i = 0; i < str.length; i++) {
+			if(!str[i].equals("")) {
+				this.add(new Monom(str[i]));
 			}
 		}
-		return p;
+	}
+	public void DrawPolynom() {
+		LinePlotTest frame = new LinePlotTest(this);
+		frame.setVisible(true);
 	}
 
-	 
-	  
+	public static void main(String args[]) {
+//		Polynom p = new Polynom("x^2+4x-16");
+//		System.out.println(p.toString());
+//		System.out.println(p.root(-9, -2, 0.01));
+//		System.out.println(p.toString());
+		Polynom p = new Polynom("");
+		
+		
+		Polynom p1 = new Polynom("0.2x^4-1.5x^3+3.0x^2-1.0x-5.0");
+		p1.DrawPolynom();
+		System.out.println(p1.toString());
+		p.add(p1);
+		System.out.println(p.toString());
+	}
+
+
 }

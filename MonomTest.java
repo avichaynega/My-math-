@@ -1,30 +1,27 @@
 package myMath;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 class MonomTest {
 
 	@Test
-	void testMonomDoubleInt() {
-		
-		
-	}
-
-	@Test
-	void testMonomMonom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testF() {
-		fail("Not yet implemented");
+		Monom a = new Monom(2, 2);
+		double result;
+		result=a.f(2);
+		assertEquals(8, result);
+		
+		
 	}
 
 	@Test
-	void testDerivative() {
-		fail("Not yet implemented");
+    void testDerivative() {
+		Monom a = new Monom(2, 2);
+		Monom b =new Monom(a.derivative());
+		double actual = b.get_coefficient()+b.get_power();
+		double expected = 5;
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -32,33 +29,30 @@ class MonomTest {
 		Monom a = new Monom(2, 2);
 		Monom b = new Monom(3, 2);
 		a.add(b);
-		Monom result =new Monom(a);
-		assertEquals(new Monom(5, 2), result);
+		double actual =a.get_coefficient()+a.get_power();
+		double expected = 7;
+		assertEquals(expected,actual );
 	}
 
 	@Test
 	void testMulti() {
-		fail("Not yet implemented");
+		Monom a = new Monom(2, 2);
+		Monom b = new Monom(3, 2);
+		a.multi(b);
+		double actual =a.get_coefficient()+a.get_power();
+		double expected = 10;
+		assertEquals(expected,actual );
 	}
 
 	@Test
 	void testToStringString() {
-		fail("Not yet implemented");
+		Monom a = new Monom(2, 2);
+		String result = ""+a.toString();
+		assertEquals("2.0x^2", result);
 	}
 
-	@Test
-	void testToString() {
-		fail("Not yet implemented");
-	}
+	
 
-	@Test
-	void testGet_coefficient() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGet_power() {
-		fail("Not yet implemented");
-	}
+	
 
 }
