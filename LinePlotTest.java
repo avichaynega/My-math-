@@ -23,7 +23,7 @@ public class LinePlotTest extends JFrame {
 		System.out.println(p.toString());
 		DataTable data = new DataTable(Double.class, Double.class);
 		DataTable data2 = new DataTable(Double.class, Double.class);
-		for (double x = -2; x <= 6; x += eps) {
+		for (double x = -2; x <= 6; x += 0.01) {
 			y0 = p.f(x - eps);
 			ymid = p.f(x);
 			y1 = p.f(x + eps);

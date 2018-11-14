@@ -214,11 +214,11 @@ public class Polynom implements Polynom_able{
 	 * 
 	 */
 	public Polynom_able derivative() {
-		Polynom p = (Polynom) this.copy();
-		Iterator<Monom> itp = p.iteretor();
+		Polynom p = new Polynom();
+		Iterator<Monom> it = this.iteretor();
 
-		while(itp.hasNext()) {
-			p.add(itp.next().derivative());
+		while(it.hasNext()) {
+			p.add(it.next().derivative());
 		}
 		return p;
 	}
@@ -244,10 +244,22 @@ public class Polynom implements Polynom_able{
 
 		}
 		return area;
+	}
 
+	public double AreaUnderAxisX(double x0, double x1, double eps) {
+		double Parts = (Math.abs(x0-x1))/eps;
+		double temp1 = x0+eps;
+		double area=0;
 
+		for (int i = 0; i < Parts; i++) {
+			if(this.f(temp1)<0) {
+				area+=Math.abs(this.f(temp1))*eps;
+				temp1= temp1+eps;
+			}
+			temp1= temp1+eps;
 
-
+		}
+		return area;
 	}
 
 	/**
@@ -301,19 +313,26 @@ public class Polynom implements Polynom_able{
 	}
 
 	public static void main(String args[]) {
-//		Polynom p = new Polynom("x^2+4x-16");
-//		System.out.println(p.toString());
-//		System.out.println(p.root(-9, -2, 0.01));
-//		System.out.println(p.toString());
+		//		Polynom p = new Polynom("x^2+4x-16");
+		//		System.out.println(p.toString());
+		//		System.out.println(p.root(-9, -2, 0.01));
+		//		System.out.println(p.toString());
+		Polynom p2 = new Polynom("-3x^2+2x");
+		System.out.println(p2.toString());
+		Polynom p = new Polynom("-2x^2-x");
 		
 		
-		
-	Polynom p1 = new Polynom("0.2x^4-1.5x^3+3.0x^2-1.0x-5.0");
-	p1.DrawPolynom();
-//		Polynom p = new Polynom("2x^2-2x");
-//		Polynom p1 = new Polynom("-3x^3-4x");
-//		p.add(p1);
-//		System.out.println(p.toString());
+		p.multiply(p2);
+		System.out.println(p.toString());
+//		Polynom p = new Polynom("2x^2-3x");
+//		System.out.println(p.derivative().toString());
+
+//		Polynom p1 = new Polynom("0.2x^4-1.5x^3+3.0x^2-1.0x-5.0");
+//		p1.DrawPolynom();
+		//		Polynom p = new Polynom("2x^2-2x");
+		//		Polynom p1 = new Polynom("-3x^3-4x");
+		//		p.add(p1);
+		//		System.out.println(p.toString());
 	}
 
 

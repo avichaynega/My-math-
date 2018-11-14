@@ -98,7 +98,7 @@ public class Monom implements function{
 					if (s.length()==1) {
 						a=1;
 					}
-					else if(s.charAt(0) == '-' && s.charAt(i-1)==1) {
+					else if(s.charAt(0) == '-' && s.charAt(1)=='x') {
 						a=-1;
 					}
 					else {
@@ -181,10 +181,11 @@ public class Monom implements function{
 		return this._power;
 	}
 	public static void main(String args[]) {
-		Monom a = new Monom(2, 1);
+		Monom a = new Monom("2x^2");
+		//System.out.println(a.derivative().toString());
 		System.out.println(a.derivative().toString());
-		
-
+		Monom b = new Monom("-3x");
+		System.out.println(b.derivative().toString());
 	}
 
 
