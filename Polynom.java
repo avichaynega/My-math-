@@ -305,14 +305,15 @@ public class Polynom implements Polynom_able{
 //		System.out.println(p.toString());
 //		System.out.println(p.root(-9, -2, 0.01));
 //		System.out.println(p.toString());
-		Polynom p = new Polynom("");
 		
 		
-		Polynom p1 = new Polynom("0.2x^4-1.5x^3+3.0x^2-1.0x-5.0");
-		p1.DrawPolynom();
-		System.out.println(p1.toString());
-		p.add(p1);
-		System.out.println(p.toString());
+		
+	Polynom p1 = new Polynom("0.2x^4-1.5x^3+3.0x^2-1.0x-5.0");
+	p1.DrawPolynom();
+//		Polynom p = new Polynom("2x^2-2x");
+//		Polynom p1 = new Polynom("-3x^3-4x");
+//		p.add(p1);
+//		System.out.println(p.toString());
 	}
 
 

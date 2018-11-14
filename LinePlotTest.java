@@ -38,11 +38,11 @@ public class LinePlotTest extends JFrame {
 		Shape circle = new Ellipse2D.Double(-4.0, -4.0, 8.0, 8.0);
 		getContentPane().add(new InteractivePanel(plot));
 		LineRenderer lines = new DefaultLineRenderer2D();
-		plot.setLineRenderers(data, lines);
+		plot.setLineRenderers(data,lines);
 		plot.getPointRenderers(data2).get(0).setShape(circle);
 		plot.getPointRenderers(data2).get(0).setColor(Color.RED);
 		plot.getPointRenderers(data2).get(0).setValueVisible(true);
-		plot.getPointRenderers(data).get(0).setColor(Color.BLUE);
+		plot.getPointRenderers(data).get(0).setColor(Color.BLUE);;
 		plot.getLineRenderers(data).get(0).setColor(Color.BLUE);
 		
 

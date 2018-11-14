@@ -98,7 +98,7 @@ public class Monom implements function{
 					if (s.length()==1) {
 						a=1;
 					}
-					else if(s.charAt(0) == '-' && i==s.length()-1) {
+					else if(s.charAt(0) == '-' && s.charAt(i-1)==1) {
 						a=-1;
 					}
 					else {

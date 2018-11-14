@@ -11,8 +11,8 @@ class PolynomTest {
 	@Test
 	void testF() {
 		Polynom p = new Polynom("2x^2+2x+1");
-		double actual =p.f(2);
-		double expected =13;
+		double actual = p.f(2);
+		double expected = 13;
 		assertEquals(expected, actual);
 	}
 
@@ -22,8 +22,7 @@ class PolynomTest {
 		Polynom p1 = new Polynom("-3x^3-4x");
 		p.add(p1);
 		String actual = p.toString();
-		System.out.println(actual);
-		Object expected = "-3x^3+2x^2-6x";
+		String expected = "-3.0x^3+2.0x^2-6.0x";
 		assertEquals(expected, actual);
 	}
 
@@ -42,10 +41,11 @@ class PolynomTest {
 		Polynom p = new Polynom("-2x^2-x");
 		Polynom p2 = new Polynom("-3x^2+2x");
 		p.multiply(p2);
-		String actual = p.toString() ;
+		System.out.println(p.toString());
+		String actual = p.toString();
 		String expected = "6.0x^4-1.0x^3-2.0x^2";
 		assertEquals(expected, actual);
-		
+
 	}
 
 	@Test
@@ -84,15 +84,15 @@ class PolynomTest {
 
 	@Test
 	void testToString() {
-		Polynom p =new Polynom("2x^2+2x+1");
+		Polynom p = new Polynom("2x^2+2x+1");
 		String actual = p.toString();
-		String expected="2.0x^2+2.0x+1.0";
+		String expected = "2.0x^2+2.0x+1.0";
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testPolynomString() {
-			
+
 	}
-	
+
 }
