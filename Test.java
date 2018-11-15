@@ -1,8 +1,12 @@
 package myMath;
 
 public class Test {
+	/**
+	 * 
+	 * Class for testing the function
+	 */
 	public static void main(String args[]) {
-//	if you want to use the function remove the '//' sign
+//	if you want to see result remove the '//' sign for each test
 /*--------------Monom test class-----------*/
 /**************string function****************/		
 //		Monom a = new Monom(2, 2);
@@ -55,7 +59,6 @@ public class Test {
 //		Polynom a = new Polynom("x^3-5x");
 //		System.out.println(a.area(-3,1, 0.01));
 /************copy function************************/	
-//		check copy function of polynom and equal function:
 //		Polynom a = new Polynom("x^3-5x");
 //		Polynom b =  (Polynom)a.copy();
 //		System.out.println(a.equals(b));
@@ -77,10 +80,6 @@ public class Test {
 //		Polynom b = new Polynom("x^2+x");
 //		a.multiply(b);
 //		System.out.println(a);
-		Polynom a = new Polynom("x^3-5x");
-		Polynom b = new Polynom("x^3-5x");
-		System.out.println(a.equals(b));;
-		
 		
 /*********substract function********************/		
 //		
@@ -91,11 +90,14 @@ public class Test {
 /**********DrawPolynom function***********************/	
 //		Polynom a = new Polynom("x^3-5x");
 //		System.out.println(a.area(-3,1, 0.01));
-/**********area function***********************/		
-//		Polynom a = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
-//		System.out.println(a.toString());
-//		//a.DrawPolynom();
-//		System.out.println(a.AreaUnderAxisX(-2, 6, 0.01));
+/**********area function***********************/
+	Polynom a = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+	System.out.println(a.AreaUnderAxisX(-2, 6, 0.01));
+		
+/**********Drawing function***********************/
+	a.DrawPolynom();
+	
+	
 	}
 
 }

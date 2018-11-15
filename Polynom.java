@@ -22,7 +22,6 @@ public class Polynom implements Polynom_able {
 	/**
 	 * a constructor for building an array to store the Monoms;
 	 */
-
 	public Polynom() {
 		this.polynom = new ArrayList<>();
 	}
@@ -135,8 +134,12 @@ public class Polynom implements Polynom_able {
 	 */
 
 	public boolean equals(Polynom_able p1) {
+		Polynom p = (Polynom)p1.copy();
 		Iterator<Monom> it = iteretor();
 		Iterator<Monom> itp1 = p1.iteretor();
+		if(this.polynom.size() != p.size()) {
+			return false;
+		}
 			while (it.hasNext()) {
 				Monom temp = it.next();
 				Monom temp2 = itp1.next();
@@ -325,6 +328,12 @@ public class Polynom implements Polynom_able {
 				this.add(new Monom(str[i]));//add to polynom by using the Monom string constructor
 			}
 		}
+	}
+	/*
+	 * This function return size of polynom
+	 */
+	public int size() {
+		return this.polynom.size();
 	}
 
 	/*

@@ -103,6 +103,15 @@ class PolynomTest {
 	}
 
 	@Test
+	void testAreaUnderAxisX() {
+		Polynom p = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+		double actual = p.AreaUnderAxisX(-2, 6, 0.01);
+		double expected = 25.18;
+		assertEquals(expected, actual,0.01);
+		
+	}
+	
+	@Test
 	void testArea() {
 		Polynom p = new Polynom("x^3-5x");
 		double actual = p.area(-3,1, 0.01);

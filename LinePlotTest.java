@@ -32,13 +32,16 @@ public class LinePlotTest extends JFrame {
 		DataTable data = new DataTable(Double.class, Double.class);//object to save the all points
 		DataTable CriticalPoints = new DataTable(Double.class, Double.class);//object to save the critical points
 		
+		
 		for (double x = -2; x <= 6; x += eps) {//run on polynom
 			y0 = p.f(x - eps);
 			ymid = p.f(x);
 			y1 = p.f(x + eps);
+			
 			if (ymid < y0 && ymid < y1 || ymid > y0 && ymid > y1) {//find critical points
 				CriticalPoints.add(x, ymid);//add critical points to store points object
 			}
+			
 			double y = p.f(x);//add all point to anther to store points object
 			data.add(x, y);
 		}
