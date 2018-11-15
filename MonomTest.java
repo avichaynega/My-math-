@@ -8,9 +8,9 @@ class MonomTest {
 	@Test
 	void testF() {
 		Monom a = new Monom(2, 2);
-		double result;
-		result=a.f(2);
-		assertEquals(8, result);
+		double acutal =a.f(2);
+		double expected = 8.0;
+		assertEquals(expected, acutal);
 		
 		
 	}
@@ -31,7 +31,7 @@ class MonomTest {
 		a.add(b);
 		double actual =a.get_coefficient()+a.get_power();
 		double expected = 7;
-		assertEquals(expected,actual );
+		assertEquals(expected,actual);
 	}
 
 	@Test
@@ -46,11 +46,11 @@ class MonomTest {
 
 	@Test
 	void testToStringString() {
-		Monom a = new Monom(2, 2);
-		String result = ""+a.toString();
-		assertEquals("2.0x^2", result);
+		Monom a = new Monom(-2, 2);
+		String actual = a.toString();
+		String expected  = "-2.0x^2";	
+		assertEquals(expected, actual);
 	}
-
 	
 
 	

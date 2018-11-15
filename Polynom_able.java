@@ -35,7 +35,7 @@ import java.util.Iterator;
 public interface Polynom_able extends cont_function{
 	/**
 	 * Add p1 to this Polynom
-	 * @param p1
+	 * @param p1 
 	 */
 	public void add(Polynom_able p1);
 	/**

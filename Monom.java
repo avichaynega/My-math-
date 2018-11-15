@@ -65,7 +65,7 @@ public class Monom implements function{
 	 * @return	true if The 'Monom a' can add with this Monom ,return false if can't add.
 	 */
 	public boolean add(Monom a) {
-		if(this._power == a._power) {
+		if(this._power == a._power) {//check to make sure the power is equal
 			this.set_coefficient(this._coefficient+a._coefficient);
 			return true;
 		}
@@ -87,22 +87,22 @@ public class Monom implements function{
 	/**
 	 * This function get a string and makes it Monom object;
 	 * @param s string represent Monom.
-	 * @return return Monom after converting the string.
 	 */
 	public Monom (String s) {
 		double a=0;
 		int b=0;
-		if(s.contains("x") && !s.contains("^")) {
+		
+		if(s.contains("x") && !s.contains("^")) {//check if its Mono without power
 			for (int i = 0; i < s.length(); i++) {
 				if(s.charAt(i)=='x') {
-					if (s.length()==1) {
+					if (s.length()==1) {//the Monom coefficient is  1 = (x); 
 						a=1;
 					}
-					else if(s.charAt(0) == '-' && s.charAt(1)=='x') {
+					else if(s.charAt(0) == '-' && s.charAt(1)=='x') {//the Monom coefficient is  -1 = (-x).
 						a=-1;
 					}
 					else {
-						a = Double.parseDouble(s.substring(0, i));
+						a = Double.parseDouble(s.substring(0, i));//the Monom is a number without power
 					}
 				}
 				
@@ -112,7 +112,7 @@ public class Monom implements function{
 
 			
 		}
-		else if(!s.contains("x")&& !s.contains("^")) {
+		else if(!s.contains("x")&& !s.contains("^")) {//if the Monom is a free number
 			a= Double.parseDouble(s);
 			b=0;
 		}
@@ -180,13 +180,5 @@ public class Monom implements function{
 	public int get_power() {
 		return this._power;
 	}
-	public static void main(String args[]) {
-		Monom a = new Monom("2x^2");
-		//System.out.println(a.derivative().toString());
-		System.out.println(a.derivative().toString());
-		Monom b = new Monom("-3x");
-		System.out.println(b.derivative().toString());
-	}
-
-
+	
 }

@@ -2,39 +2,95 @@ package myMath;
 
 public class Test {
 	public static void main(String args[]) {
-		
+//	if you want to use the function remove the '//' sign
+/*--------------Monom test class-----------*/
+/**************string function****************/		
+//		Monom a = new Monom(2, 2);
+//		System.out.println(a.toString());
+/************derivative function**********************/
+//		
+//		System.out.println(a.derivative());
+/***********add function*******************/
+//		
 //		Monom a = new Monom(2, 2);
 //		Monom b =new Monom(4, 2);
-//		Monom c =new Monom(3, 3);
-//	
+//		a.add(b);
 //		System.out.println(a.toString());
+/********f function********************/
 //		
-//		System.out.println(d);
-//		System.out.println(a.derivative());
-//		System.out.println(a.add(b));
+//		Monom a = new Monom(2, 2);
+//		System.out.println(a.f(4));
+/*************multi function**************/		
 //		
-//		
-		Polynom a = new Polynom();
-		Polynom g = new Polynom();
-		Monom b = new Monom(-1, 3);
-		Monom c = new Monom(4, 1);
-		Monom d = new Monom(1, 3);
-//		Monom e = new Monom(4, 1);
-//		Monom f = new Monom(5, 3);
-		a.add(b);
-		a.add(c);
-//		a.add(d);
-//		g.add(d);
-//		g.add(e);
-//		g.add(f);
+//		Monom a = new Monom(2, 2);
+//		Monom b =new Monom(4, 2);
+//		a.multi(a);
+//		System.out.println(a.toString());
 		
+/*--------------Polynom test class-----------*/
+/***********add function********************/			
+//		
+//		Polynom a = new Polynom();
+//		Monom b = new Monom(-1, 3);
+//		Monom c = new Monom(4, 1);
+//		a.add(b);
+//		a.add(c);
+//		System.out.println(a.toString());
+/***********add function***********************/
+//		
+//		Polynom a = new Polynom();
+//		Polynom b =  new Polynom();
+//		Monom c = new Monom(-1, 3);
+//		Monom d = new Monom(4, 1);
+//		a.add(c);
+//		a.add(d);
+//		Monom e = new Monom(-2, 2);
+//		Monom f = new Monom(4, 3);
+//		b.add(e);
+//		b.add(f);
+//		a.add(b);
+//		System.out.println(a.toString());
+/********root function***********************/
+//		
+//		Polynom a = new Polynom("x^3-5x");
+//		System.out.println(a.area(-3,1, 0.01));
+		/************************************************/	
+//		check copy function of polynom and equal function:
+//		Polynom a = new Polynom("x^3-5x");
+//		Polynom b =  (Polynom)a.copy();
+//		System.out.println(a.equals(b));
+/*********derivative function*********************/	
+//		
+//		Polynom a = new Polynom("x^3-5x");
+//		System.out.println(a.derivative());
+/*********f function************************/	
+//		
+//		Polynom a = new Polynom("x^3-5x");
+//		System.out.println(a.f(-1));
+/**********isZero function************************/		
+//		
+//		Polynom a = new Polynom("0x^3-0x");
+//		System.out.println(a.isZero());
+/********multiply function*********************/		
+//		
+//		Polynom a = new Polynom("x^3-5x");
+//		Polynom b = new Polynom("x^2+x");
+//		a.multiply(b);
+//		System.out.println(a);
+/*********substract function********************/		
+//		
+//		Polynom a = new Polynom("x^3-5x");
+//		Polynom b = new Polynom("x^2+x");
+//		a.substract(b);
+//		System.out.println(a);
+/**********DrawPolynom function***********************/	
+//		Polynom a = new Polynom("x^3-5x");
+//		System.out.println(a.area(-3,1, 0.01));
+/**********area function***********************/		
+		Polynom a = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
 		System.out.println(a.toString());
-//		System.out.println(g.toString());
-//		a.multiply(g);
-//		a.substract(g);
-//		System.out.println(a.equals(g));
-//		System.out.println(a.area(-5, -3, 0.0001));
-//		System.out.println(a.root(-4,-1, 0.5));
+		//a.DrawPolynom();
+		System.out.println(a.AreaUnderAxisX(-0.9, 4.8, 0.1));
 	}
 
 }
