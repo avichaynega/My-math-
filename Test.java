@@ -28,7 +28,7 @@ public class Test {
 //		System.out.println(a.toString());
 		
 /*--------------Polynom test class-----------*/
-/***********add function********************/			
+/***********add Monom function********************/			
 //		
 //		Polynom a = new Polynom();
 //		Monom b = new Monom(-1, 3);
@@ -36,7 +36,7 @@ public class Test {
 //		a.add(b);
 //		a.add(c);
 //		System.out.println(a.toString());
-/***********add function***********************/
+/***********add Polynoms function***********************/
 //		
 //		Polynom a = new Polynom();
 //		Polynom b =  new Polynom();
@@ -54,7 +54,7 @@ public class Test {
 //		
 //		Polynom a = new Polynom("x^3-5x");
 //		System.out.println(a.area(-3,1, 0.01));
-		/************************************************/	
+/************copy function************************/	
 //		check copy function of polynom and equal function:
 //		Polynom a = new Polynom("x^3-5x");
 //		Polynom b =  (Polynom)a.copy();
@@ -77,6 +77,11 @@ public class Test {
 //		Polynom b = new Polynom("x^2+x");
 //		a.multiply(b);
 //		System.out.println(a);
+		Polynom a = new Polynom("x^3-5x");
+		Polynom b = new Polynom("x^3-5x");
+		System.out.println(a.equals(b));;
+		
+		
 /*********substract function********************/		
 //		
 //		Polynom a = new Polynom("x^3-5x");
@@ -87,10 +92,10 @@ public class Test {
 //		Polynom a = new Polynom("x^3-5x");
 //		System.out.println(a.area(-3,1, 0.01));
 /**********area function***********************/		
-		Polynom a = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
-		System.out.println(a.toString());
-		//a.DrawPolynom();
-		System.out.println(a.AreaUnderAxisX(-0.9, 4.8, 0.1));
+//		Polynom a = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+//		System.out.println(a.toString());
+//		//a.DrawPolynom();
+//		System.out.println(a.AreaUnderAxisX(-2, 6, 0.01));
 	}
 
 }

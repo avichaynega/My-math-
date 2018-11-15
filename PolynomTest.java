@@ -106,7 +106,7 @@ class PolynomTest {
 	void testArea() {
 		Polynom p = new Polynom("x^3-5x");
 		double actual = p.area(-3,1, 0.01);
-		double expected = 3.12;
+		double expected = 6.24;
 		assertEquals(expected, actual,0.01);
 		
 	}

@@ -29,32 +29,32 @@ public class LinePlotTest extends JFrame {
 		setSize(700, 500);
 		double eps = 0.01;
 		double y0, ymid, y1;
-		DataTable data = new DataTable(Double.class, Double.class);
-		DataTable CriticalPoints = new DataTable(Double.class, Double.class);
+		DataTable data = new DataTable(Double.class, Double.class);//object to save the all points
+		DataTable CriticalPoints = new DataTable(Double.class, Double.class);//object to save the critical points
 		
-		for (double x = -2; x <= 6; x += eps) {
+		for (double x = -2; x <= 6; x += eps) {//run on polynom
 			y0 = p.f(x - eps);
 			ymid = p.f(x);
 			y1 = p.f(x + eps);
-			if (ymid < y0 && ymid < y1 || ymid > y0 && ymid > y1) {
-				CriticalPoints.add(x, ymid);
+			if (ymid < y0 && ymid < y1 || ymid > y0 && ymid > y1) {//find critical points
+				CriticalPoints.add(x, ymid);//add critical points to store points object
 			}
-			double y = p.f(x);
+			double y = p.f(x);//add all point to anther to store points object
 			data.add(x, y);
 		}
 
-		XYPlot plot = new XYPlot(data);
-		plot.add(data);
-		plot.add(CriticalPoints);
-		Shape circle = new Ellipse2D.Double(-4.0, -4.0, 8.0, 8.0);
+		XYPlot plot = new XYPlot(data);//make a plot object
+		plot.add(data);//add points to plot
+		plot.add(CriticalPoints);//add critical points to object
+		Shape circle = new Ellipse2D.Double(-4.0, -4.0, 8.0, 8.0);//object to make circle shape for critical points 
 		getContentPane().add(new InteractivePanel(plot));
-		LineRenderer lines = new DefaultLineRenderer2D();
-		plot.setLineRenderers(data, lines);
-		plot.getPointRenderers(CriticalPoints).get(0).setShape(circle);
-		plot.getPointRenderers(CriticalPoints).get(0).setColor(Color.RED);
-		plot.getPointRenderers(CriticalPoints).get(0).setValueVisible(true);
-		plot.getPointRenderers(data).get(0).setColor(Color.blue);
-		plot.getLineRenderers(data).get(0).setColor(Color.blue);		
+		LineRenderer lines = new DefaultLineRenderer2D();//make line object to connect the points
+		plot.setLineRenderers(data, lines);//connect the line with points
+		plot.getPointRenderers(CriticalPoints).get(0).setShape(circle);//making circle shape for critical points 
+		plot.getPointRenderers(CriticalPoints).get(0).setColor(Color.RED);//paint the criticl points with red color
+		plot.getPointRenderers(CriticalPoints).get(0).setValueVisible(true);//show the value of critical point (y)
+		plot.getPointRenderers(data).get(0).setColor(Color.blue);//paint the line with blue color
+		plot.getLineRenderers(data).get(0).setColor(Color.blue);//paint the  data points with blue color		
 	
 	}
 

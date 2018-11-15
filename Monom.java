@@ -117,25 +117,26 @@ public class Monom implements function{
 			b=0;
 		}
 		else {
-			for (int i = 0; i < s.length(); i++) {
+			for (int i = 0; i < s.length(); i++) {//a Monom with both chars 'x' and '^'
 				if(s.charAt(i)=='x') {
-					if(i==0) {
+					if(i==0) {//check if this char 'x' was inserted
 						a = 1;
 					}
-					else if(s.charAt(0)=='-' && s.charAt(1)=='x') {
+					else if(s.charAt(0)=='-' && s.charAt(1)=='x') {//check if this char '-x' inserted
 						a=-1;
 					}
-					else {
+					else {//check if this "ax" sub string pattern  inserted and get a.
 						a = Double.parseDouble(s.substring(0, i));
 					}
 				}
-				if(s.charAt(i)=='^') {
+				if(s.charAt(i)=='^') {//collect the power number.
 					b = Integer.parseInt(s.substring(i+1,s.length()));
 				}
 
 			}
 
 		}
+		//construct the Monom.
 		this._coefficient =a;
 		this._power = b;
 	}
